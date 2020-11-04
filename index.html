@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz 2</title>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <h1 id="titulo">Global Solution SAS</h1>
+        <div id="latarea">
+            <input id="tarea" placeholder="Descripción de la tarea">
+            <button id="nueva">Nueva Tarea</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div id="divi">
+            <p>To do</p>
+            <p>Doing</p>
+            <p>Done</p>
+        </div>
+        <br>
+        <div id="tablero">
+                <div id="todo">
+                
+                </div>
+    
+                <div id="doing">
+                    
+                </div>
+    
+                <div id="done">
+                
+            </div>
+           
+
+        </div>
+    </body>
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyBItGkpQ9Kz71L7h1TntWJ8ICD5zsZILbg",
+    authDomain: "quiz2-c8b5a.firebaseapp.com",
+    databaseURL: "https://quiz2-c8b5a.firebaseio.com",
+    projectId: "quiz2-c8b5a",
+    storageBucket: "quiz2-c8b5a.appspot.com",
+    messagingSenderId: "146331729519",
+    appId: "1:146331729519:web:f5d9fa7e05a360f1e0979a",
+    measurementId: "G-F7B5Y90CNZ"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script src="components/TareaList.js"></script>
+<script src="js/index.js"></script>
+
+
+
+    
