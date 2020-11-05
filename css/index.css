@@ -80,8 +80,7 @@ h1 {
 }
 
 #todo *{
-    margin-bottom: 30px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #doing {
@@ -94,8 +93,7 @@ h1 {
 }
 
 #doing *{
-    margin-bottom: 30px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #done {
@@ -108,34 +106,65 @@ h1 {
 }
 
 #done *{
-    margin-bottom: 30px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .lastareas {
     display: flex;
     width: 100%;
-    height: 9em;
-    border: 1px solid;
-    border-color: rgb(0, 0, 0);
+    height: 10em;
+    border: 3px solid;
+    border-color: rgb(201, 201, 201);
+    position: relative;
+    
 }
 
 .lodescrip {
-    display: flex;
-    align-items: flex-start;
-    font-size: 17px;
-    width: 75%;
-    height: 60%;
+    font-size: 15px;
+    width: 84%;
+    position: absolute;
+    top: 15px;
+    left: 15px;
 }
 
+.lahora {
+    font-size: 12px;
+    width: 84%;
+    position: absolute;
+    top: 0 px;
+    left: 15px;
+    color:rgb(168, 168, 168);
+}
 
 .borrar {
     border-radius: 100%;
     height: 2em;
     width: 2em;
     background: rgb(218, 15, 15);
+    position: absolute;
+    top: 0;
+    right: 10px;
 }
 
+.siguiente {
+    border-radius: 100%;
+    height: 2em;
+    width: 2em;
+    background: rgb(15, 120, 218);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.anterior {
+    border-radius: 100%;
+    height: 2em;
+    width: 2em;
+    background: rgb(255, 191, 16);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
 
 
 
