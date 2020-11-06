@@ -17,7 +17,7 @@ postear = () => {
     }
 
     //value de las variables
-    let referencia = database.ref('tareas/').push();   
+    let referencia = database.ref('tareas todo/').push();   
     let t = tareas.value;
     let fecha = new Date();
     let anno = fecha.getFullYear();
@@ -37,7 +37,6 @@ postear = () => {
     let latarea = {
         tareasn: t,
         id: referencia.key,
-        fase: 0,
         fecha: fechita,
     }  
     
@@ -49,26 +48,38 @@ postear = () => {
 //ACCION DE PUBLICAR
 btnueva.addEventListener('click',postear);
 
-//LECTURA
-database.ref('tareas/').on('value', function(data){
+//LECTURA TO DO
+database.ref('tareas todo/').on('value', function(data){
     todoLista.innerHTML = '';
+    data.forEach(
+        latarea => {
+            let valor = latarea.val();
+            let fila1 = new TareaList(valor);
+            todoLista.appendChild(fila1.render());
+        }
+    );
+});
+
+//LECTURA DOING
+database.ref('tareas doing/').on('value', function(data){
     doingLista.innerHTML = '';
     data.forEach(
         latarea => {
             let valor = latarea.val();
-            let fila = new TareaList(valor);
-            if(valor.fase == 0){
-                todoLista.appendChild(fila.render());
-            }
-        
-            if(valor.fase == 1){
-                doingLista.appendChild(fila.render());
-            }
+            let fila2 = new TareaDoing(valor);
+            doingLista.appendChild(fila2.render());
+        }
+    );
+});
 
-            if(valor.fase == 2){
-                doneLista.appendChild(fila.render());
-            }
-            
+//LECTURA DONE
+database.ref('tareas done/').on('value', function(data){
+    doneLista.innerHTML = '';
+    data.forEach(
+        latarea => {
+            let valor = latarea.val();
+            let fila3 = new TareaDone(valor);
+            doneLista.appendChild(fila3.render());
         }
     );
 });

@@ -1,4 +1,4 @@
-class TareaList{
+class TareaDone{
     constructor(latarea){
         this.latarea = latarea;
     }
@@ -16,8 +16,8 @@ class TareaList{
         let borrabt = document.createElement('button');
         borrabt.className = 'borrar';
 
-        let sigbt = document.createElement('button');
-        sigbt.className = 'siguiente';
+        let antbt = document.createElement('button');
+        antbt.className = 'anterior';
 
         let horita = document.createElement('div');
         horita.className = 'lahora';
@@ -25,22 +25,21 @@ class TareaList{
             this.latarea.fecha
         );
         
-        borrabt.addEventListener('click', ()=>{
-            const database = firebase.database();
-            database.ref('tareas todo/'+this.latarea.id).set(null);
-        });
-
-        sigbt.addEventListener('click', ()=>{
-            const database = firebase.database();
-            database.ref('tareas doing/'+this.latarea.id).set(this.latarea);
-            database.ref('tareas todo/'+this.latarea.id).set(null);
-        });
-
         component.appendChild(horita);
         component.appendChild(descrip);
         component.appendChild(borrabt);
-        component.appendChild(sigbt);
-       
+        component.appendChild(antbt);
+
+        borrabt.addEventListener('click', ()=>{
+            const database = firebase.database();
+            database.ref('tareas done/'+this.latarea.id).set(null);
+        });
+
+        antbt.addEventListener('click', ()=>{
+            const database = firebase.database();
+            database.ref('tareas doing/'+this.latarea.id).set(this.latarea);
+            database.ref('tareas done/'+this.latarea.id).set(null);
+        });
 
         return component;
     }
