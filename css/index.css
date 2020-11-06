@@ -58,7 +58,7 @@ h1 {
 #tablero{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     margin: 0 auto;
     width: 75em;

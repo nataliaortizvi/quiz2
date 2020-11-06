@@ -19,13 +19,28 @@ postear = () => {
     //value de las variables
     let referencia = database.ref('tareas/').push();   
     let t = tareas.value;
+    let fecha = new Date();
+    let anno = fecha.getFullYear();
+    let months = fecha.getMonth();
+    let days = fecha.getDay();
+
+    let h = fecha.getHours();
+    let m = fecha.getMinutes();
+    let s = fecha.getSeconds();
+
+    let laHora = h+':'+m+':'+s;
+    let fechita = anno+'-'+months+'-'+days+'  ('+laHora+')';
+
+    console.log(laHora);
 
     //objeto del usuario con el post
     let latarea = {
         tareasn: t,
         id: referencia.key,
-        fase: 'tareas to do',
+        fase: 0,
+        fecha: fechita,
     }  
+    
 
     referencia.set(latarea);
     tarea.value='';
@@ -42,12 +57,16 @@ database.ref('tareas/').on('value', function(data){
         latarea => {
             let valor = latarea.val();
             let fila = new TareaList(valor);
-            if(valor.fase == 'tareas to do'){
+            if(valor.fase == 0){
                 todoLista.appendChild(fila.render());
             }
         
-            if(valor.fase == 'tareas doing'){
+            if(valor.fase == 1){
                 doingLista.appendChild(fila.render());
+            }
+
+            if(valor.fase == 2){
+                doneLista.appendChild(fila.render());
             }
             
         }

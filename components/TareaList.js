@@ -22,10 +22,10 @@ class TareaList{
         let antbt = document.createElement('button');
         antbt.className = 'anterior';
 
-        let horita = document.createElement('p');
+        let horita = document.createElement('div');
         horita.className = 'lahora';
         horita.innerHTML = (
-            this.latarea.id
+            this.latarea.fecha
         );
         
         component.appendChild(horita);
@@ -41,12 +41,12 @@ class TareaList{
 
         sigbt.addEventListener('click', ()=>{
             const database = firebase.database();
-            database.ref('tareas/'+this.latarea.id+'/fase').set('tareas doing');
+            database.ref('tareas/'+this.latarea.id+'/fase').set(1);
         });
 
         antbt.addEventListener('click', ()=>{
             const database = firebase.database();
-            database.ref('tareas/'+this.latarea.id+'/fase').set('tareas to do');
+            database.ref('tareas/'+this.latarea.id+'/fase').set(0);
         });
 
 
